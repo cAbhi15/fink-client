@@ -13,9 +13,7 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
-# This is a simple integration test
-
+set -e
 # start Kafka in docker container
 docker-compose -p integration_test -f docker-compose-kafka.yml up -d
 
