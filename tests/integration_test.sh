@@ -15,7 +15,6 @@
 # limitations under the License.
 
 # This is a simple integration test
-set -e
 
 # start Kafka in docker container
 docker-compose -p integration_test -f docker-compose-kafka.yml up -d
