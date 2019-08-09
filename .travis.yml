@@ -19,7 +19,10 @@ install:
   # Python deps
   - pip install --upgrade pip setuptools wheel
   - pip install -r requirements.txt
-  - pip install -e .
+  # - pip install -e .
+
+  - export PYTHONPATH="${FINK_CLIENT_HOME}:${PYTHONPATH}"
+  - export PATH="${FINK_CLIENT_HOME}/bin:${PATH}"
 
 script:
   # For sonar to run correctly
