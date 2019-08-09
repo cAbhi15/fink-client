@@ -30,6 +30,9 @@ script:
   # run tests
   - bin/fink_client_test.sh
 
+  - coverage run coverage_test.py
+  - coverage report
+
   # Scan with sonarqube only if internal PR (i.e. no fork)
   # Note: this is unsatisfactory...
   - if [ $TRAVIS_PULL_REQUEST == false ] || [ $TRAVIS_PULL_REQUEST_SLUG == "astrolabsoftware/fink-client"]; then
