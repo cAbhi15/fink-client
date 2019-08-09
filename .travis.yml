@@ -32,7 +32,7 @@ script:
   - python -c "import fink_client; print('Fink client version ', fink_client.__version__)"
 
   # run tests
-  - bin/fink_client_test.sh
+  - fink_client_test
 
   # - coverage run coverage_test.py
   # - coverage report
