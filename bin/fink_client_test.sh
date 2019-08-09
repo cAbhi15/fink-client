@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -x
 # Copyright 2019 AstroLab Software
 # Author: Abhishek Chauhan
 #
@@ -15,16 +15,16 @@
 # limitations under the License.
 set -e
 
-TEST_DIR=${PWD}/tests
+TEST_DIR=${FINK_CLIENT_HOME}/tests
 
 # start Kafka in docker container
-docker-compose -p integration_test -f $TEST_DIR/docker-compose-kafka.yml up -d
+docker-compose -p integration_test -f ${TEST_DIR}/docker-compose-kafka.yml up -d
 
 # run test module
-coverage run --rcfile ${PWD}/.coveragerc --source=${PWD}/fink_client,${TEST_DIR} $TEST_DIR/test.py
+coverage run --rcfile ${FINK_CLIENT_HOME}/.coveragerc --source=${FINK_CLIENT_HOME},${TEST_DIR} $TEST_DIR/test.py
 
 # shut down kafka container
-docker-compose -p integration_test -f $TEST_DIR/docker-compose-kafka.yml down
+docker-compose -p integration_test -f ${TEST_DIR}/docker-compose-kafka.yml down
 
 # report coverage
 coverage combine
