@@ -171,4 +171,16 @@ class TestComponents(unittest.TestCase):
         
         
 if __name__ == "__main__":
-    unittest.main()
+    from coverage import Coverage
+    data_file = os.path.abspath(os.path.join(
+            os.path.dirname(__file__), "../.coverage"))
+    config_file = os.path.abspath(os.path.join(
+            os.path.dirname(__file__), "../.coveragerc"))
+    cov = Coverage(data_file=data_file, config_file=config_file)
+    print("starting coverage")
+    cov.start()
+    unittest.main(exit=False)
+    cov.stop()
+    cov.save()
+    print("coverage measure done")
+    print("coverage is:", cov.report())
