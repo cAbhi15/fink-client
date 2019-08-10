@@ -32,10 +32,14 @@ script:
   - python -c "import fink_client; print('Fink client version ', fink_client.__version__)"
 
   # run tests
-  # - source bin/fink_client_test.sh
+  - source bin/fink_client_test.sh
 
-  - coverage run coverage_test.py
-  - coverage report
+  # - coverage run coverage_test.py
+  # - coverage report
+
+  # debug
+  # print .coverage file
+  - cat -n .coverage
 
   # Scan with sonarqube only if internal PR (i.e. no fork)
   # Note: this is unsatisfactory...
