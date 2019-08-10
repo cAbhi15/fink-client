@@ -14,3 +14,14 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+# coverage configuration
+# [run]
+# branch = false
+# parallel = true
+# data_file = ${FINK_CLIENT_HOME}/.coverage
+# include=
+#     ${FINK_CLIENT_HOME}/*
+# omit=
+#     setup.py
+#     dist/*
